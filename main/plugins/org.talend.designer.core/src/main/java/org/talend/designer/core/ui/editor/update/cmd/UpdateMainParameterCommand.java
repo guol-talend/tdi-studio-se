@@ -198,7 +198,9 @@ public class UpdateMainParameterCommand extends Command {
                                                             }
                                                         }
                                                     } else if (EParameterName.HADOOP_ADVANCED_PROPERTIES.getName().equals(
-                                                            param.getName())) {
+                                                            param.getName())
+                                                            || EParameterName.SPARK_ADVANCED_PROPERTIES.getName().equals(
+                                                                    param.getName())) {
                                                         List<Map> list = (ArrayList) param.getValue();
                                                         for (Map map : list) {
                                                             if (map.get("BUILDIN") != null && map.get("BUILDIN").equals("TRUE")) {
@@ -208,7 +210,6 @@ public class UpdateMainParameterCommand extends Command {
                                                             }
                                                         }
                                                         process.setPropertyValue(param.getName(), objectValue);
-
                                                     } else {
                                                         process.setPropertyValue(param.getName(), objectValue);
                                                     }
